@@ -116,3 +116,8 @@ def reset_password(request):
             "status": "failed",
             "message": "wrong otp"
         }, status=status.HTTP_400_BAD_REQUEST)
+        
+    return Response({
+        "status": "failed",
+        "message": "username dosenot exists"
+    },status=status.HTTP_400_BAD_REQUEST)
