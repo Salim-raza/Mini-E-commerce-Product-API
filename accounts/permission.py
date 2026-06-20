@@ -7,3 +7,10 @@ class IsAdmin(IsAuthenticated):
         if not user or user.is_authenticated:
             return False
         return user.tole == "admin"
+        
+class IsCustomar(IsAuthenticated):
+    def has_permission(self, request, view):
+        user = request.user
+        if not user or user.is_authenticated:
+            return False
+        return user.tole == "customar"
