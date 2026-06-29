@@ -13,7 +13,7 @@ class Product(models.Model):
     name = models.CharField(max_length=500)
     description = models.CharField(max_length=1000)
     product_image = models.ImageField(upload_to='product_images/')
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2) 
     stock = models.IntegerField()
     category = models.CharField(choices=CATEGORY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -49,11 +49,4 @@ class Order(models.Model):
         for item in self.items.all():
             total += item.total_item()
         return total
-    
-
-        
-   
-    
-    
-    
     
